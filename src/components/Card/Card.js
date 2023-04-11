@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 
 
-function Card({onFavorite, title, imageUrl, price, onPlus}) {
-    const [isLike, setIsLike] = useState(false);
+function Card({id, onAddToFavorites,  onFavorite, title, imageUrl, price, onPlus, key, favorited=false}) {
+    const [isLike, setIsLike] = useState(favorited);
     const [isAdded, setIsAdded] = useState(false);
 
     const onClickLike = () => {
-        onFavorite();
+        onAddToFavorites({id, title, imageUrl, price, key});
         setIsLike(!isLike);
     }
     const onClickPlus = () => {
-        onPlus({title, imageUrl, price});
+        onPlus({id, title, imageUrl, price, key});
         setIsAdded(!isAdded);
     }
     return (
