@@ -108,7 +108,7 @@ header {
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
 }
@@ -146,6 +146,8 @@ header {
   .greenButton{
     width: 245px;
     margin-top: 20px;
+
+
 
     &:hover{
       img {
@@ -222,6 +224,12 @@ header {
   .greenButton {
     position: relative;
 
+    &:disabled {
+      animation: button-loading 0.8s ease-in-out infinite;
+      background-color: #bebebe;
+      cursor: default;
+    }
+
     &:hover {
       img {
         transform: translateX(5px);
@@ -257,4 +265,17 @@ header {
     &:active {
       background: darken(#9dd558, 5%);
     }
+}
+
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
